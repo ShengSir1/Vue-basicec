@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_el与data的两种写法</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <H1>你好，{{name}}</H1>
+</div>
+  <script>
+Vue.config.productionTip=false
+    
+    //el的两种写法
+    const vm = new Vue({
+        // el: '#root', 第一种写法
+        data: {
+            name:'尚硅谷'
+        },
+    })
+    console.log(vm)
+    vm.$mount('#root') //第二种写法 “挂载”
+
+    //data 的两种写法
+    new Vue({
+        el: '#root',
+        //data的第一种写法： 对象式
+        // data: {
+        //     name:'尚硅谷'
+        // },
+        
+        //data 的第二种写法： 函数式
+        fata(){
+            console.log('@@@',this) //此处的this是Vue实例对象
+            return{
+                name:'尚硅谷'
+            }
+        }
+        
+    })
+  </script>
+</body>
+</html>
